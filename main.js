@@ -2,6 +2,7 @@ var mayor = 0;
 var numero = 0;
 var init = '';
 function unoan(n){
+	$('#tiempo').html("");
 	init = getDate();
 	var x = 1;
 	var busy = false;
@@ -20,7 +21,8 @@ function unoan(n){
 			x++;
 			if(x==n){
 				console.log();
-				$('#tiempo').html((getDate()-init)+" milisegundos");
+				var tiempo = (getDate()-init)/1000;
+				$('#tiempo').html(tiempo+" segundos");
 				clearInterval(processor); 
 			}
 			busy = false;
@@ -48,5 +50,7 @@ function getDate(){
 	return d.getTime();
 }
 $(document).on('ready',function(){
-	unoan(1000000);
+	$('#enviar').on('click',function(){
+		unoan($('#resolver').val());
+	});
 });
