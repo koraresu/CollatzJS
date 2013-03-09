@@ -27,7 +27,7 @@ function unoan(n){
 			}
 			busy = false;
 		}
-	});
+	},1);
 	setData(numero, mayor);
 }
 function collatz(x){
